@@ -18,9 +18,17 @@ from django.conf.urls import handler400
 from django.contrib import admin
 from django.urls import path, include
 from mainapp import views
+from django.conf import settings
 
 handler400 = views.error_404
+# handler400 = 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('mainapp.urls')),
+    path('',include('articulos.urls')),
 ]
+#ruta de imagenes
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
