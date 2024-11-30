@@ -1,0 +1,12 @@
+{%{% extends "layouts/layouts.html" %}%}
+
+{% block content %}
+    <h1>{{content}}</h1>
+    <script>
+        alert("La ruta que escribiste no se encontro, redirigiendo a pagina de inicio")
+
+        setTimeout(function(){
+            window.location.href = "{% url 'inicio' %}"
+        }, 1000)
+    </script>
+{% endblock content %}
